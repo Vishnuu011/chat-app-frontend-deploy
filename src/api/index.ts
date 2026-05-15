@@ -12,9 +12,9 @@ const createInstance = (baseURL: string) => {
   return instance;
 };
 
-export const userApi = createInstance(process.env.REACT_APP_USER_SERVICE || 'http://localhost:8000');
-export const chatApi = createInstance(process.env.REACT_APP_CHAT_SERVICE || 'http://localhost:8002');
-export const callApi = createInstance(process.env.REACT_APP_CALL_SERVICE || 'http://localhost:8003');
+export const userApi = createInstance(import.meta.env.VITE_USER_SERVICE || 'http://localhost:8000');
+export const chatApi = createInstance(import.meta.env.VITE_CHAT_SERVICE || 'http://localhost:8002');
+export const callApi = createInstance(import.meta.env.VITE_CALL_SERVICE || 'http://localhost:8003');
 
 // Auth
 export const login = (email: string) => userApi.post('/api/v1/login', { email });

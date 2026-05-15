@@ -14,7 +14,7 @@ export const useCallSocket = () => {
   useEffect(() => {
     if (!user) return;
 
-    const CALL_SOCKET_URL = process.env.REACT_APP_CALL_SOCKET || 'http://localhost:8003';
+    const CALL_SOCKET_URL = import.meta.env.VITE_CALL_SOCKET || 'http://localhost:8003';
 
     callSocket = io(CALL_SOCKET_URL, {
       query: { userId: user._id || user.id },

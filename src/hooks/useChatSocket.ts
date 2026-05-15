@@ -16,7 +16,7 @@ export const useChatSocket = () => {
   useEffect(() => {
     if (!user) return;
 
-    const CHAT_SOCKET_URL = process.env.REACT_APP_CHAT_SOCKET || 'http://localhost:8002';
+    const CHAT_SOCKET_URL = import.meta.env.VITE_CHAT_SOCKET || 'http://localhost:8002';
 
     chatSocket = io(CHAT_SOCKET_URL, {
       query: { userId: user._id || user.id },
